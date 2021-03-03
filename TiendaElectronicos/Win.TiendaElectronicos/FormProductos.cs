@@ -26,19 +26,20 @@ namespace Win.TiendaElectronicos
 
         private void listaProductosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
+
             listaProductosBindingSource.EndEdit();
             var producto = (Producto)listaProductosBindingSource.Current;
 
-            var resultado = Productos.GuardarProducto(producto);
+            var Resultado = Productos.GuardarProducto(producto);
 
-            if (resultado.Exitoso == true)
+            if(Resultado.Correcto == true)
             {
                 listaProductosBindingSource.ResetBindings(false);
-                DeshabilitarHabilitarBotones(true);
+                HabilitarDeshabilitar(true);
             }
             else
             {
-                MessageBox.Show(resultado.Mensaje);
+                MessageBox.Show(Resultado.Incorrecto);
             }
         }
 
@@ -46,10 +47,11 @@ namespace Win.TiendaElectronicos
         {
             Productos.AgregarProducto();
             listaProductosBindingSource.MoveLast();
-            DeshabilitarHabilitarBotones(false);
+
+            HabilitarDeshabilitar(false);
         }
 
-        private void DeshabilitarHabilitarBotones(bool valor)
+        private void HabilitarDeshabilitar(bool valor)
         {
             bindingNavigatorMoveFirstItem.Enabled = valor;
             bindingNavigatorMoveLastItem.Enabled = valor;
@@ -57,55 +59,75 @@ namespace Win.TiendaElectronicos
             bindingNavigatorMoveNextItem.Enabled = valor;
             bindingNavigatorPositionItem.Enabled = valor;
 
+
             bindingNavigatorAddNewItem.Enabled = valor;
             bindingNavigatorDeleteItem.Enabled = valor;
-            toolStripButtonCancelar.Visible = !valor;
+
+            toolStripButton1.Visible = !valor;
 
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-            
-            if (codigoTextBox.Text != "")
+
+           
+            if(IdTextBox.Text != "")
             {
-                var resultado = MessageBox.Show("Desea eliminar este registro?", "Eliminar", MessageBoxButtons.YesNo);
-                if (resultado == DialogResult.Yes)
+                var resultado = MessageBox.Show("Desea Elminar Este Producto ?", "Eliminar", MessageBoxButtons.YesNo);
+                if(resultado == DialogResult.Yes)
                 {
-                    var codigo = Convert.ToInt32(codigoTextBox.Text);
-                    Eliminar(codigo);
+                    var Id = Convert.ToInt32(IdTextBox.Text);
+                    Eliminar(Id);
                 }
-        
+                
             }
         }
 
-        private void Eliminar(int codigo)
+        private void Eliminar(int id)
         {
             
-            var resultado = Productos.EliminarProducto(codigo);
+             var Resultado = Productos.Eliminar(id);
 
-            if (resultado == true)
+            if (Resultado == true)
             {
-               listaProductosBindingSource.ResetBindings(false);
+                listaProductosBindingSource.ResetBindings(false);
             }
             else
             {
-               MessageBox.Show("Ocurrio un error al eliminar el producto");
+                MessageBox.Show("Error al Eliminar Producto");
             }
+        
         }
 
-        private void toolStripButtonCancelar_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            DeshabilitarHabilitarBotones(true);
+            HabilitarDeshabilitar(true);
             Eliminar(0);
         }
 
-        private void descripcionTextBox_TextChanged(object sender, EventArgs e)
+        private void FormProductos_Load(object sender, EventArgs e)
         {
-            
+
         }
-        private void descripcionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void IdLabel_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void IdTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listaProductosBindingNavigator_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listaProductosBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
