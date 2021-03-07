@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace Win.TiendaElectronicos
     public partial class FormProductos : Form
     {
         ProductosBL Productos;
+        CategoriaBL Categorias;
 
         public FormProductos()
         {
@@ -22,7 +24,9 @@ namespace Win.TiendaElectronicos
             Productos = new ProductosBL();
 
             listaProductosBindingSource.DataSource = Productos.ObtenerProductos();
-        }
+
+            Categorias = new CategoriaBL();
+            listaCategoriaBindingSource.DataSource = Categorias.ObtenerCategoria();        }
 
         private void listaProductosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -30,12 +34,22 @@ namespace Win.TiendaElectronicos
             listaProductosBindingSource.EndEdit();
             var producto = (Producto)listaProductosBindingSource.Current;
 
+
+            if(fotoPictureBox.Image != null)
+            {
+                producto.Foto = Program.imageToByteArray(fotoPictureBox.Image);
+            }
+            else
+            {
+                producto.Foto = null;
+            }
             var Resultado = Productos.GuardarProducto(producto);
 
             if(Resultado.Correcto == true)
             {
                 listaProductosBindingSource.ResetBindings(false);
                 HabilitarDeshabilitar(true);
+                MessageBox.Show("Producto Registrado");
             }
             else
             {
@@ -128,6 +142,45 @@ namespace Win.TiendaElectronicos
         private void listaProductosBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void fotoLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fotoPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var producto = (Producto)listaProductosBindingSource.Current;
+            if(producto != null)
+            {
+                openFileDialog1.ShowDialog();
+                var archivo = openFileDialog1.FileName;
+
+                if (archivo != "")
+                {
+                    var fileInfo = new FileInfo(archivo);
+                    var fileStrem = fileInfo.OpenRead();
+
+                    fotoPictureBox.Image = Image.FromStream(fileStrem);
+                }
+            }
+            else
+            {
+                MessageBox.Show("no se puede asignar imagen sin Antes Regitrar un producto");
+            }
+
+         
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fotoPictureBox.Image = null;
         }
     }
 }

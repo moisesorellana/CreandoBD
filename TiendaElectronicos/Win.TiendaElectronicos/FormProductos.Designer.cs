@@ -35,6 +35,7 @@ namespace Win.TiendaElectronicos
             System.Windows.Forms.Label descripcionLabel;
             System.Windows.Forms.Label inventarioLabel;
             System.Windows.Forms.Label precioLabel;
+            System.Windows.Forms.Label descripcionLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
             this.IdLabel = new System.Windows.Forms.Label();
             this.listaProductosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -57,19 +58,28 @@ namespace Win.TiendaElectronicos
             this.descripcionTextBox = new System.Windows.Forms.TextBox();
             this.inventarioTextBox = new System.Windows.Forms.TextBox();
             this.precioTextBox = new System.Windows.Forms.TextBox();
+            this.fotoPictureBox = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.listaCategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.descripcionComboBox = new System.Windows.Forms.ComboBox();
             activoLabel = new System.Windows.Forms.Label();
             descripcionLabel = new System.Windows.Forms.Label();
             inventarioLabel = new System.Windows.Forms.Label();
             precioLabel = new System.Windows.Forms.Label();
+            descripcionLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosBindingNavigator)).BeginInit();
             this.listaProductosBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaCategoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // activoLabel
             // 
             activoLabel.AutoSize = true;
-            activoLabel.Location = new System.Drawing.Point(89, 207);
+            activoLabel.Location = new System.Drawing.Point(89, 262);
             activoLabel.Name = "activoLabel";
             activoLabel.Size = new System.Drawing.Size(40, 13);
             activoLabel.TabIndex = 1;
@@ -87,7 +97,7 @@ namespace Win.TiendaElectronicos
             // inventarioLabel
             // 
             inventarioLabel.AutoSize = true;
-            inventarioLabel.Location = new System.Drawing.Point(87, 137);
+            inventarioLabel.Location = new System.Drawing.Point(89, 180);
             inventarioLabel.Name = "inventarioLabel";
             inventarioLabel.Size = new System.Drawing.Size(57, 13);
             inventarioLabel.TabIndex = 7;
@@ -96,11 +106,20 @@ namespace Win.TiendaElectronicos
             // precioLabel
             // 
             precioLabel.AutoSize = true;
-            precioLabel.Location = new System.Drawing.Point(89, 176);
+            precioLabel.Location = new System.Drawing.Point(89, 224);
             precioLabel.Name = "precioLabel";
             precioLabel.Size = new System.Drawing.Size(40, 13);
             precioLabel.TabIndex = 9;
             precioLabel.Text = "Precio:";
+            // 
+            // descripcionLabel1
+            // 
+            descripcionLabel1.AutoSize = true;
+            descripcionLabel1.Location = new System.Drawing.Point(89, 140);
+            descripcionLabel1.Name = "descripcionLabel1";
+            descripcionLabel1.Size = new System.Drawing.Size(55, 13);
+            descripcionLabel1.TabIndex = 14;
+            descripcionLabel1.Text = "Categoria:";
             // 
             // IdLabel
             // 
@@ -139,7 +158,7 @@ namespace Win.TiendaElectronicos
             this.listaProductosBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.listaProductosBindingNavigator.Name = "listaProductosBindingNavigator";
             this.listaProductosBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.listaProductosBindingNavigator.Size = new System.Drawing.Size(441, 25);
+            this.listaProductosBindingNavigator.Size = new System.Drawing.Size(685, 25);
             this.listaProductosBindingNavigator.TabIndex = 0;
             this.listaProductosBindingNavigator.Text = "bindingNavigator1";
             this.listaProductosBindingNavigator.RefreshItems += new System.EventHandler(this.listaProductosBindingNavigator_RefreshItems);
@@ -259,7 +278,7 @@ namespace Win.TiendaElectronicos
             // activoCheckBox
             // 
             this.activoCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.listaProductosBindingSource, "Activo", true));
-            this.activoCheckBox.Location = new System.Drawing.Point(164, 202);
+            this.activoCheckBox.Location = new System.Drawing.Point(164, 257);
             this.activoCheckBox.Name = "activoCheckBox";
             this.activoCheckBox.Size = new System.Drawing.Size(104, 24);
             this.activoCheckBox.TabIndex = 2;
@@ -267,11 +286,11 @@ namespace Win.TiendaElectronicos
             // 
             // IdTextBox
             // 
-            this.IdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProductosBindingSource, "Codigo", true));
+            this.IdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProductosBindingSource, "Id", true));
             this.IdTextBox.Location = new System.Drawing.Point(164, 57);
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.ReadOnly = true;
-            this.IdTextBox.Size = new System.Drawing.Size(180, 20);
+            this.IdTextBox.Size = new System.Drawing.Size(204, 20);
             this.IdTextBox.TabIndex = 4;
             this.IdTextBox.TextChanged += new System.EventHandler(this.IdTextBox_TextChanged);
             // 
@@ -280,30 +299,88 @@ namespace Win.TiendaElectronicos
             this.descripcionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProductosBindingSource, "Descripcion", true));
             this.descripcionTextBox.Location = new System.Drawing.Point(164, 95);
             this.descripcionTextBox.Name = "descripcionTextBox";
-            this.descripcionTextBox.Size = new System.Drawing.Size(180, 20);
+            this.descripcionTextBox.Size = new System.Drawing.Size(204, 20);
             this.descripcionTextBox.TabIndex = 6;
             // 
             // inventarioTextBox
             // 
             this.inventarioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProductosBindingSource, "Inventario", true));
-            this.inventarioTextBox.Location = new System.Drawing.Point(164, 137);
+            this.inventarioTextBox.Location = new System.Drawing.Point(164, 173);
             this.inventarioTextBox.Name = "inventarioTextBox";
-            this.inventarioTextBox.Size = new System.Drawing.Size(180, 20);
+            this.inventarioTextBox.Size = new System.Drawing.Size(204, 20);
             this.inventarioTextBox.TabIndex = 8;
             // 
             // precioTextBox
             // 
             this.precioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProductosBindingSource, "Precio", true));
-            this.precioTextBox.Location = new System.Drawing.Point(164, 173);
+            this.precioTextBox.Location = new System.Drawing.Point(164, 221);
             this.precioTextBox.Name = "precioTextBox";
-            this.precioTextBox.Size = new System.Drawing.Size(180, 20);
+            this.precioTextBox.Size = new System.Drawing.Size(204, 20);
             this.precioTextBox.TabIndex = 10;
+            // 
+            // fotoPictureBox
+            // 
+            this.fotoPictureBox.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.fotoPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.listaProductosBindingSource, "Foto", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.fotoPictureBox.Location = new System.Drawing.Point(415, 40);
+            this.fotoPictureBox.Name = "fotoPictureBox";
+            this.fotoPictureBox.Size = new System.Drawing.Size(243, 178);
+            this.fotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.fotoPictureBox.TabIndex = 12;
+            this.fotoPictureBox.TabStop = false;
+            this.fotoPictureBox.Click += new System.EventHandler(this.fotoPictureBox_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(430, 235);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Agregar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(569, 235);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Remover";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "jpg, png | *.jpg; *.png";
+            // 
+            // listaCategoriaBindingSource
+            // 
+            this.listaCategoriaBindingSource.DataSource = typeof(BL.Tecnologia.Categoria);
+            // 
+            // descripcionComboBox
+            // 
+            this.descripcionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.listaProductosBindingSource, "CategoriaId", true));
+            this.descripcionComboBox.DataSource = this.listaCategoriaBindingSource;
+            this.descripcionComboBox.DisplayMember = "Descripcion";
+            this.descripcionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.descripcionComboBox.FormattingEnabled = true;
+            this.descripcionComboBox.Location = new System.Drawing.Point(164, 137);
+            this.descripcionComboBox.Name = "descripcionComboBox";
+            this.descripcionComboBox.Size = new System.Drawing.Size(204, 21);
+            this.descripcionComboBox.TabIndex = 15;
+            this.descripcionComboBox.ValueMember = "Id";
             // 
             // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 274);
+            this.ClientSize = new System.Drawing.Size(685, 457);
+            this.Controls.Add(descripcionLabel1);
+            this.Controls.Add(this.descripcionComboBox);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.fotoPictureBox);
             this.Controls.Add(activoLabel);
             this.Controls.Add(this.activoCheckBox);
             this.Controls.Add(this.IdLabel);
@@ -322,6 +399,8 @@ namespace Win.TiendaElectronicos
             this.listaProductosBindingNavigator.ResumeLayout(false);
             this.listaProductosBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaCategoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,5 +434,11 @@ namespace Win.TiendaElectronicos
         private System.Windows.Forms.TextBox precioTextBox;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Label IdLabel;
+        private System.Windows.Forms.PictureBox fotoPictureBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.BindingSource listaCategoriaBindingSource;
+        private System.Windows.Forms.ComboBox descripcionComboBox;
     }
 }

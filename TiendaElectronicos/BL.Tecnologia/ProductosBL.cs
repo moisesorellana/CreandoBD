@@ -34,15 +34,19 @@ namespace BL.Tecnologia
             var resultado = validar(Producto);
             if( resultado.Correcto == false)
             {
+              
                 return resultado;
             }
-            if (Producto.Id == 0)
-            {
-                Producto.Id = ListaProducto.Max(item => item.Id) + 1;
-            }
+
+            _contexto.SaveChanges();
+
             resultado.Correcto = true;
             return resultado;
+
+            
         }
+
+
 
         public void AgregarProducto()
         {
@@ -58,7 +62,7 @@ namespace BL.Tecnologia
                 if (Producto.Id == id)
                 {
                     ListaProducto.Remove(Producto);
-                    Contexto.DbContexSaveChanges();
+                    _contexto.SaveChanges();
                     return true;
                 }
 
@@ -90,6 +94,13 @@ namespace BL.Tecnologia
                 resultado.Correcto = false;
             }
 
+
+            if (Producto.CategoriaId == 0)
+            {
+                resultado.Incorrecto = "Seleccione una Categoria";
+                resultado.Correcto = false;
+            }
+
             return resultado;
         }
     }
@@ -99,10 +110,21 @@ namespace BL.Tecnologia
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
+        public int CategoriaId { get; set; }
+        public Categoria Categoria { get; set; }
         public double Precio { get; set; }
         public int Inventario { get; set; }
+        public byte[] Foto{ get; set; }
         public bool Activo { get; set; }
+
+
+        public Producto()
+        {
+            Activo = true;
+        }
     }
+
+    
 
     public class Resultado
     {

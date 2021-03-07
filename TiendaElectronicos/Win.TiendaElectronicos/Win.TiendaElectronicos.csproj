@@ -64,17 +64,41 @@
     <Compile Include="FormAtencionAlCliente.Designer.cs">
       <DependentUpon>FormAtencionAlCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClientes.Designer.cs">
+      <DependentUpon>FormClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEntradas.Designer.cs">
+      <DependentUpon>FormEntradas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEnvios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormEnvios.Designer.cs">
       <DependentUpon>FormEnvios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormExclusivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExclusivo.Designer.cs">
+      <DependentUpon>FormExclusivo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMayoristas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMayoristas.Designer.cs">
+      <DependentUpon>FormMayoristas.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
@@ -106,6 +130,12 @@
     <Compile Include="FormReporteVentas.Designer.cs">
       <DependentUpon>FormReporteVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSalidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalidas.Designer.cs">
+      <DependentUpon>FormSalidas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,11 +147,20 @@
     <EmbeddedResource Include="FormAtencionAlCliente.resx">
       <DependentUpon>FormAtencionAlCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormClientes.resx">
+      <DependentUpon>FormClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEnvios.resx">
       <DependentUpon>FormEnvios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormExclusivo.resx">
+      <DependentUpon>FormExclusivo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMayoristas.resx">
+      <DependentUpon>FormMayoristas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
@@ -152,6 +191,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BL.Tecnologia.Categoria.datasource" />
+    <None Include="Properties\DataSources\BL.Tecnologia.CategoriaBL.datasource" />
+    <None Include="Properties\DataSources\BL.Tecnologia.ClientesBL.datasource" />
     <None Include="Properties\DataSources\BL.Tecnologia.Producto.datasource" />
     <None Include="Properties\DataSources\BL.Tecnologia.ProductosBL.datasource" />
     <None Include="Properties\DataSources\BL.Tecnologia.SeguridadBL.datasource" />

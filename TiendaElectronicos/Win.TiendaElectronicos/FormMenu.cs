@@ -85,5 +85,47 @@ namespace Win.TiendaElectronicos
             var formLogin = new FormLogin();
             formLogin.ShowDialog();
         }
+
+        private void generalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formClientes = new FormClientes();
+            formClientes.MdiParent = this;
+            formClientes.Show();
+        }
+
+        private void mayoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formMayorista = new FormMayoristas();
+            formMayorista.MdiParent = this;
+            formMayorista.Show();
+        }
+
+        private void exclusivosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formExclusivo = new FormExclusivo();
+            formExclusivo.MdiParent = this;
+            formExclusivo.Show();
+        }
+
+        private void entradasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formEntradas = new FormEntradas();
+            formEntradas.MdiParent = this;
+            formEntradas.Show();
+
+        }
+
+        private void salidasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formSalidas = new FormSalidas();
+            formSalidas.MdiParent = this;
+            formSalidas.Show();
+
+        }
     }
 }
