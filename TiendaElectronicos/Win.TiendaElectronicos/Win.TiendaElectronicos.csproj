@@ -88,6 +88,12 @@
     <Compile Include="FormExclusivo.Designer.cs">
       <DependentUpon>FormExclusivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFacturas.Designer.cs">
+      <DependentUpon>FormFacturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,12 @@
     <Compile Include="FormSalidas.Designer.cs">
       <DependentUpon>FormSalidas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVendedores.Designer.cs">
+      <DependentUpon>FormVendedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,11 +162,17 @@
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEntradas.resx">
+      <DependentUpon>FormEntradas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEnvios.resx">
       <DependentUpon>FormEnvios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormExclusivo.resx">
       <DependentUpon>FormExclusivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFacturas.resx">
+      <DependentUpon>FormFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -177,6 +195,9 @@
     <EmbeddedResource Include="FormReporteVentas.resx">
       <DependentUpon>FormReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormVendedores.resx">
+      <DependentUpon>FormVendedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormVentas.resx">
       <DependentUpon>FormVentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,9 +215,12 @@
     <None Include="Properties\DataSources\BL.Tecnologia.Categoria.datasource" />
     <None Include="Properties\DataSources\BL.Tecnologia.CategoriaBL.datasource" />
     <None Include="Properties\DataSources\BL.Tecnologia.ClientesBL.datasource" />
+    <None Include="Properties\DataSources\BL.Tecnologia.Factura.datasource" />
     <None Include="Properties\DataSources\BL.Tecnologia.Producto.datasource" />
     <None Include="Properties\DataSources\BL.Tecnologia.ProductosBL.datasource" />
     <None Include="Properties\DataSources\BL.Tecnologia.SeguridadBL.datasource" />
+    <None Include="Properties\DataSources\BL.Tecnologia.Vendedor.datasource" />
+    <None Include="Properties\DataSources\BL.Tecnologia.Vendedores.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

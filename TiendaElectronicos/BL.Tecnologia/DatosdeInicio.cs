@@ -30,10 +30,12 @@ namespace BL.Tecnologia
             categoria4.Descripcion = "Camaras";
             contexto.Categorias.Add(categoria4);
 
+          
 
 
             base.Seed(contexto);
             
         }
     }
+
 }

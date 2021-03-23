@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
             System.Windows.Forms.Label addLabel;
-            System.Windows.Forms.Label idCustumerLabel;
-            System.Windows.Forms.Label lastNameLabel;
-            System.Windows.Forms.Label nameLabel;
-            System.Windows.Forms.Label telephoneLabel;
+            System.Windows.Forms.Label apellidoLabel;
+            System.Windows.Forms.Label idLabel;
+            System.Windows.Forms.Label nombreLabel;
+            System.Windows.Forms.Label telefonoLabel;
+            System.Windows.Forms.Label tipoClienteLabel;
+            System.Windows.Forms.Label rTNLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
             this.clienteBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
@@ -48,22 +50,94 @@
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.clienteBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.addTextBox = new System.Windows.Forms.TextBox();
-            this.idCustumerTextBox = new System.Windows.Forms.TextBox();
-            this.lastNameTextBox = new System.Windows.Forms.TextBox();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.telephoneTextBox = new System.Windows.Forms.TextBox();
             this.toolStripButtonCancelar = new System.Windows.Forms.ToolStripButton();
+            this.addTextBox = new System.Windows.Forms.TextBox();
+            this.apellidoTextBox = new System.Windows.Forms.TextBox();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.nombreTextBox = new System.Windows.Forms.TextBox();
+            this.telefonoTextBox = new System.Windows.Forms.TextBox();
+            this.fotoPictureBox = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.tipoClienteTextBox = new System.Windows.Forms.TextBox();
+            this.rTNTextBox = new System.Windows.Forms.TextBox();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             addLabel = new System.Windows.Forms.Label();
-            idCustumerLabel = new System.Windows.Forms.Label();
-            lastNameLabel = new System.Windows.Forms.Label();
-            nameLabel = new System.Windows.Forms.Label();
-            telephoneLabel = new System.Windows.Forms.Label();
+            apellidoLabel = new System.Windows.Forms.Label();
+            idLabel = new System.Windows.Forms.Label();
+            nombreLabel = new System.Windows.Forms.Label();
+            telefonoLabel = new System.Windows.Forms.Label();
+            tipoClienteLabel = new System.Windows.Forms.Label();
+            rTNLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingNavigator)).BeginInit();
             this.clienteBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // addLabel
+            // 
+            addLabel.AutoSize = true;
+            addLabel.Location = new System.Drawing.Point(28, 144);
+            addLabel.Name = "addLabel";
+            addLabel.Size = new System.Drawing.Size(29, 13);
+            addLabel.TabIndex = 1;
+            addLabel.Text = "Add:";
+            // 
+            // apellidoLabel
+            // 
+            apellidoLabel.AutoSize = true;
+            apellidoLabel.Location = new System.Drawing.Point(28, 118);
+            apellidoLabel.Name = "apellidoLabel";
+            apellidoLabel.Size = new System.Drawing.Size(47, 13);
+            apellidoLabel.TabIndex = 3;
+            apellidoLabel.Text = "Apellido:";
+            // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new System.Drawing.Point(28, 54);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(19, 13);
+            idLabel.TabIndex = 5;
+            idLabel.Text = "Id:";
+            // 
+            // nombreLabel
+            // 
+            nombreLabel.AutoSize = true;
+            nombreLabel.Location = new System.Drawing.Point(28, 85);
+            nombreLabel.Name = "nombreLabel";
+            nombreLabel.Size = new System.Drawing.Size(47, 13);
+            nombreLabel.TabIndex = 7;
+            nombreLabel.Text = "Nombre:";
+            // 
+            // telefonoLabel
+            // 
+            telefonoLabel.AutoSize = true;
+            telefonoLabel.Location = new System.Drawing.Point(28, 175);
+            telefonoLabel.Name = "telefonoLabel";
+            telefonoLabel.Size = new System.Drawing.Size(52, 13);
+            telefonoLabel.TabIndex = 9;
+            telefonoLabel.Text = "Telefono:";
+            // 
+            // tipoClienteLabel
+            // 
+            tipoClienteLabel.AutoSize = true;
+            tipoClienteLabel.Location = new System.Drawing.Point(192, 54);
+            tipoClienteLabel.Name = "tipoClienteLabel";
+            tipoClienteLabel.Size = new System.Drawing.Size(66, 13);
+            tipoClienteLabel.TabIndex = 14;
+            tipoClienteLabel.Text = "Tipo Cliente:";
+            // 
+            // rTNLabel
+            // 
+            rTNLabel.AutoSize = true;
+            rTNLabel.Location = new System.Drawing.Point(115, 248);
+            rTNLabel.Name = "rTNLabel";
+            rTNLabel.Size = new System.Drawing.Size(33, 13);
+            rTNLabel.TabIndex = 16;
+            rTNLabel.Text = "RTN:";
             // 
             // clienteBindingNavigator
             // 
@@ -92,10 +166,17 @@
             this.clienteBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.clienteBindingNavigator.Name = "clienteBindingNavigator";
             this.clienteBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.clienteBindingNavigator.Size = new System.Drawing.Size(511, 25);
+            this.clienteBindingNavigator.Size = new System.Drawing.Size(630, 25);
             this.clienteBindingNavigator.TabIndex = 0;
             this.clienteBindingNavigator.Text = "bindingNavigator1";
             this.clienteBindingNavigator.RefreshItems += new System.EventHandler(this.clienteBindingNavigator_RefreshItems);
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -129,16 +210,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -161,7 +235,7 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorAddNewItem
@@ -193,93 +267,6 @@
             this.clienteBindingNavigatorSaveItem.Text = "Guardar datos";
             this.clienteBindingNavigatorSaveItem.Click += new System.EventHandler(this.clienteBindingNavigatorSaveItem_Click);
             // 
-            // addLabel
-            // 
-            addLabel.AutoSize = true;
-            addLabel.Location = new System.Drawing.Point(46, 149);
-            addLabel.Name = "addLabel";
-            addLabel.Size = new System.Drawing.Size(29, 13);
-            addLabel.TabIndex = 1;
-            addLabel.Text = "Add:";
-            // 
-            // addTextBox
-            // 
-            this.addTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Add", true));
-            this.addTextBox.Location = new System.Drawing.Point(118, 146);
-            this.addTextBox.Name = "addTextBox";
-            this.addTextBox.Size = new System.Drawing.Size(227, 20);
-            this.addTextBox.TabIndex = 2;
-            this.addTextBox.TextChanged += new System.EventHandler(this.addTextBox_TextChanged);
-            // 
-            // idCustumerLabel
-            // 
-            idCustumerLabel.AutoSize = true;
-            idCustumerLabel.Location = new System.Drawing.Point(41, 64);
-            idCustumerLabel.Name = "idCustumerLabel";
-            idCustumerLabel.Size = new System.Drawing.Size(66, 13);
-            idCustumerLabel.TabIndex = 3;
-            idCustumerLabel.Text = "Id Custumer:";
-            // 
-            // idCustumerTextBox
-            // 
-            this.idCustumerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "IdCustumer", true));
-            this.idCustumerTextBox.Location = new System.Drawing.Point(118, 64);
-            this.idCustumerTextBox.Name = "idCustumerTextBox";
-            this.idCustumerTextBox.ReadOnly = true;
-            this.idCustumerTextBox.Size = new System.Drawing.Size(227, 20);
-            this.idCustumerTextBox.TabIndex = 4;
-            // 
-            // lastNameLabel
-            // 
-            lastNameLabel.AutoSize = true;
-            lastNameLabel.Location = new System.Drawing.Point(46, 119);
-            lastNameLabel.Name = "lastNameLabel";
-            lastNameLabel.Size = new System.Drawing.Size(61, 13);
-            lastNameLabel.TabIndex = 5;
-            lastNameLabel.Text = "Last Name:";
-            // 
-            // lastNameTextBox
-            // 
-            this.lastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "LastName", true));
-            this.lastNameTextBox.Location = new System.Drawing.Point(118, 116);
-            this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(227, 20);
-            this.lastNameTextBox.TabIndex = 6;
-            // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(46, 93);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(38, 13);
-            nameLabel.TabIndex = 7;
-            nameLabel.Text = "Name:";
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Name", true));
-            this.nameTextBox.Location = new System.Drawing.Point(118, 90);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(227, 20);
-            this.nameTextBox.TabIndex = 8;
-            // 
-            // telephoneLabel
-            // 
-            telephoneLabel.AutoSize = true;
-            telephoneLabel.Location = new System.Drawing.Point(41, 179);
-            telephoneLabel.Name = "telephoneLabel";
-            telephoneLabel.Size = new System.Drawing.Size(61, 13);
-            telephoneLabel.TabIndex = 9;
-            telephoneLabel.Text = "Telephone:";
-            // 
-            // telephoneTextBox
-            // 
-            this.telephoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Telephone", true));
-            this.telephoneTextBox.Location = new System.Drawing.Point(118, 172);
-            this.telephoneTextBox.Name = "telephoneTextBox";
-            this.telephoneTextBox.Size = new System.Drawing.Size(227, 20);
-            this.telephoneTextBox.TabIndex = 10;
-            // 
             // toolStripButtonCancelar
             // 
             this.toolStripButtonCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -291,25 +278,127 @@
             this.toolStripButtonCancelar.Visible = false;
             this.toolStripButtonCancelar.Click += new System.EventHandler(this.toolStripButtonCancelar_Click);
             // 
+            // addTextBox
+            // 
+            this.addTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Add", true));
+            this.addTextBox.Location = new System.Drawing.Point(86, 141);
+            this.addTextBox.Name = "addTextBox";
+            this.addTextBox.Size = new System.Drawing.Size(205, 20);
+            this.addTextBox.TabIndex = 2;
+            // 
+            // apellidoTextBox
+            // 
+            this.apellidoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Apellido", true));
+            this.apellidoTextBox.Location = new System.Drawing.Point(86, 115);
+            this.apellidoTextBox.Name = "apellidoTextBox";
+            this.apellidoTextBox.Size = new System.Drawing.Size(205, 20);
+            this.apellidoTextBox.TabIndex = 4;
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Id", true));
+            this.idTextBox.Location = new System.Drawing.Point(86, 51);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(100, 20);
+            this.idTextBox.TabIndex = 6;
+            // 
+            // nombreTextBox
+            // 
+            this.nombreTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Nombre", true));
+            this.nombreTextBox.Location = new System.Drawing.Point(86, 82);
+            this.nombreTextBox.Name = "nombreTextBox";
+            this.nombreTextBox.Size = new System.Drawing.Size(205, 20);
+            this.nombreTextBox.TabIndex = 8;
+            // 
+            // telefonoTextBox
+            // 
+            this.telefonoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Telefono", true));
+            this.telefonoTextBox.Location = new System.Drawing.Point(86, 172);
+            this.telefonoTextBox.Name = "telefonoTextBox";
+            this.telefonoTextBox.Size = new System.Drawing.Size(205, 20);
+            this.telefonoTextBox.TabIndex = 10;
+            // 
+            // fotoPictureBox
+            // 
+            this.fotoPictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.fotoPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.fotoPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.clienteBindingSource, "Foto", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.fotoPictureBox.Location = new System.Drawing.Point(419, 28);
+            this.fotoPictureBox.Name = "fotoPictureBox";
+            this.fotoPictureBox.Size = new System.Drawing.Size(175, 141);
+            this.fotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.fotoPictureBox.TabIndex = 12;
+            this.fotoPictureBox.TabStop = false;
+            this.fotoPictureBox.Click += new System.EventHandler(this.fotoPictureBox_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(419, 175);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Agregar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(509, 175);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Remover";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "jpg,png,jpeg|*.jpg;*.png;*.jpeg";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // tipoClienteTextBox
+            // 
+            this.tipoClienteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "TipoCliente", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "0"));
+            this.tipoClienteTextBox.Location = new System.Drawing.Point(264, 50);
+            this.tipoClienteTextBox.Name = "tipoClienteTextBox";
+            this.tipoClienteTextBox.Size = new System.Drawing.Size(100, 20);
+            this.tipoClienteTextBox.TabIndex = 15;
+            // 
+            // rTNTextBox
+            // 
+            this.rTNTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "RTN", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "0"));
+            this.rTNTextBox.Location = new System.Drawing.Point(154, 245);
+            this.rTNTextBox.Name = "rTNTextBox";
+            this.rTNTextBox.Size = new System.Drawing.Size(191, 20);
+            this.rTNTextBox.TabIndex = 17;
+            // 
             // clienteBindingSource
             // 
             this.clienteBindingSource.DataSource = typeof(BL.Tecnologia.Cliente);
+            this.clienteBindingSource.CurrentChanged += new System.EventHandler(this.clienteBindingSource_CurrentChanged);
             // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 261);
+            this.ClientSize = new System.Drawing.Size(630, 307);
+            this.Controls.Add(rTNLabel);
+            this.Controls.Add(this.rTNTextBox);
+            this.Controls.Add(tipoClienteLabel);
+            this.Controls.Add(this.tipoClienteTextBox);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.fotoPictureBox);
             this.Controls.Add(addLabel);
             this.Controls.Add(this.addTextBox);
-            this.Controls.Add(idCustumerLabel);
-            this.Controls.Add(this.idCustumerTextBox);
-            this.Controls.Add(lastNameLabel);
-            this.Controls.Add(this.lastNameTextBox);
-            this.Controls.Add(nameLabel);
-            this.Controls.Add(this.nameTextBox);
-            this.Controls.Add(telephoneLabel);
-            this.Controls.Add(this.telephoneTextBox);
+            this.Controls.Add(apellidoLabel);
+            this.Controls.Add(this.apellidoTextBox);
+            this.Controls.Add(idLabel);
+            this.Controls.Add(this.idTextBox);
+            this.Controls.Add(nombreLabel);
+            this.Controls.Add(this.nombreTextBox);
+            this.Controls.Add(telefonoLabel);
+            this.Controls.Add(this.telefonoTextBox);
             this.Controls.Add(this.clienteBindingNavigator);
             this.Name = "FormClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -318,6 +407,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingNavigator)).EndInit();
             this.clienteBindingNavigator.ResumeLayout(false);
             this.clienteBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -340,11 +430,17 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton clienteBindingNavigatorSaveItem;
-        private System.Windows.Forms.TextBox addTextBox;
-        private System.Windows.Forms.TextBox idCustumerTextBox;
-        private System.Windows.Forms.TextBox lastNameTextBox;
-        private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.TextBox telephoneTextBox;
         private System.Windows.Forms.ToolStripButton toolStripButtonCancelar;
+        private System.Windows.Forms.TextBox addTextBox;
+        private System.Windows.Forms.TextBox apellidoTextBox;
+        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.TextBox nombreTextBox;
+        private System.Windows.Forms.TextBox telefonoTextBox;
+        private System.Windows.Forms.PictureBox fotoPictureBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox tipoClienteTextBox;
+        private System.Windows.Forms.TextBox rTNTextBox;
     }
 }

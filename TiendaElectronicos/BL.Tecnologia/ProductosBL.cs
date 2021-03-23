@@ -76,6 +76,14 @@ namespace BL.Tecnologia
             var resultado = new Resultado();
             resultado.Correcto = true;
 
+            if(Producto == null)
+            {
+                resultado.Incorrecto = "Agregue un Producto Valido";
+                resultado.Correcto = false;
+
+                return resultado;
+            }
+
             if(string.IsNullOrEmpty(Producto.Descripcion) == true )
             {
                 resultado.Incorrecto = "Ingrese un Producto";

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,10 +39,20 @@ namespace Win.TiendaElectronicos
 
         }
 
+
         private void clienteBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             clienteBindingSource.EndEdit();
             var cliente = (Cliente)clienteBindingSource.Current;
+
+            if(fotoPictureBox != null)
+            {
+                cliente.Foto = Program.imageToByteArray(fotoPictureBox.Image);
+            }
+            else
+            {
+                cliente.Foto = null;
+            }
 
             var respuesta = _Clientes.GuardarCliente(cliente);
 
@@ -49,6 +60,7 @@ namespace Win.TiendaElectronicos
             {
                 clienteBindingSource.ResetBindings(false);
                 DesahibilarHabilitar(true);
+                MessageBox.Show("Cliente Registrado Exitosamente");
             }
             else
             {
@@ -80,9 +92,9 @@ namespace Win.TiendaElectronicos
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-            if(idCustumerTextBox.Text != "")
+            if(idTextBox.Text != "")
             {
-                var Id = Convert.ToInt32(idCustumerTextBox.Text);
+                var Id = Convert.ToInt32(idTextBox.Text);
                 Eliminar(Id);
             }
             
@@ -107,6 +119,49 @@ namespace Win.TiendaElectronicos
         {
             DesahibilarHabilitar(true);
             Eliminar(0);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var cliente = (Cliente)clienteBindingSource.Current;
+            if(cliente != null )
+            {
+                openFileDialog1.ShowDialog();
+                var Archivo = openFileDialog1.FileName;
+
+                if (Archivo != "")
+                {
+                    var fileInfo = new FileInfo(Archivo);
+                    var fileStrem = fileInfo.OpenRead();
+
+                    fotoPictureBox.Image = Image.FromStream(fileStrem);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese los Datos completos del Cliente");
+            }
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fotoPictureBox.Image = null;
+        }
+
+        private void fotoPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void clienteBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

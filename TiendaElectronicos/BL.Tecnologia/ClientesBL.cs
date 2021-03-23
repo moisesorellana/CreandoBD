@@ -12,13 +12,13 @@ namespace BL.Tecnologia
     public class ClientesBL
     {
 
-        Contexto2 _contexto;
+        Contexto _contexo;
 
         public BindingList<Cliente> ListaClientes { get; set; }
 
         public ClientesBL()
         {
-            _contexto = new Contexto2();
+            _contexo = new Contexto();
             ListaClientes = new BindingList<Cliente>();
 
               
@@ -26,8 +26,9 @@ namespace BL.Tecnologia
 
         public BindingList<Cliente> ObtenerClientes()
         {
-            _contexto.Clientes.Load();
-            ListaClientes = _contexto.Clientes.Local.ToBindingList();
+            _contexo.Clientes.Load();
+
+            ListaClientes = _contexo.Clientes.Local.ToBindingList();
 
             return ListaClientes;
         }
@@ -39,9 +40,11 @@ namespace BL.Tecnologia
             {
                 return respuesta;
             }
-            if(cliente.IdCustumer == 0)
+            _contexo.SaveChanges();
+
+            if(cliente.Id == 0)
             {
-                cliente.IdCustumer = ListaClientes.Max(item => item.IdCustumer) + 1;
+                cliente.Id = ListaClientes.Max(item => item.Id) + 1;
             }
             respuesta.Exitoso = true;
             return respuesta;
@@ -59,7 +62,7 @@ namespace BL.Tecnologia
 
                  foreach (var cliente in ListaClientes)
                  {
-                   if(cliente.IdCustumer == Id )
+                   if(cliente.Id == Id )
                     {
                        ListaClientes.Remove(cliente);
                        return true;
@@ -75,14 +78,24 @@ namespace BL.Tecnologia
             var respuesta = new Respuesta();
             respuesta.Exitoso = true;
 
-            if (string.IsNullOrEmpty(cliente.Name)== true)
+
+
+            if (cliente == null)
+            {
+                respuesta.Mensaje = "Agregue un Cliente Valido";
+                respuesta.Exitoso = false;
+
+                return respuesta;
+            }
+
+            if (string.IsNullOrEmpty(cliente.Nombre)== true)
             {
                 respuesta.Mensaje = "Ingrese un Nombre";
                 respuesta.Exitoso = false;
             }
 
 
-            if (string.IsNullOrEmpty(cliente.LastName)== true)
+            if (string.IsNullOrEmpty(cliente.Apellido)== true)
             {
                 respuesta.Mensaje = "Ingrese un Apellido";
                 respuesta.Exitoso = false;
@@ -103,11 +116,14 @@ namespace BL.Tecnologia
 
     public class Cliente
     {
-        public int IdCustumer { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
+        public int Id{ get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
         public string Add { get; set; }
-        public double Telephone{ get; set; }
+        public double Telefono{ get; set; }
+        public string TipoCliente { get; set; }
+        public byte[] Foto { get; set; }
+        public double RTN { get; set; }
     }
 
     public class Respuesta

@@ -127,5 +127,19 @@ namespace Win.TiendaElectronicos
             formSalidas.Show();
 
         }
+
+        private void facturarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formFacturas = new FormFacturas();
+            formFacturas.MdiParent = this;
+            formFacturas.Show();
+        }
+
+        private void ventasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var formVendedor = new FormVendedores();
+            formVendedor.MdiParent = this;
+            formVendedor.Show();
+        }
     }
 }
