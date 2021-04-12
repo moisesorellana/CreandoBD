@@ -141,5 +141,12 @@ namespace Win.TiendaElectronicos
             formVendedor.MdiParent = this;
             formVendedor.Show();
         }
+
+        private void reporteProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formReporteProduto = new FormReporteProductos();
+            formReporteProduto.MdiParent = this;
+            formReporteProduto.Show();
+        }
     }
 }

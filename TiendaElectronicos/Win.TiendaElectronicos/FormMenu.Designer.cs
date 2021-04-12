@@ -55,6 +55,7 @@
             this.devolucionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,7 +143,8 @@
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reporteVentasToolStripMenuItem,
             this.reporteComprasToolStripMenuItem,
-            this.reporteInacistenciasToolStripMenuItem});
+            this.reporteInacistenciasToolStripMenuItem,
+            this.reporteProductosToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -217,7 +219,7 @@
             // ventasToolStripMenuItem1
             // 
             this.ventasToolStripMenuItem1.Name = "ventasToolStripMenuItem1";
-            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
             this.ventasToolStripMenuItem1.Text = "Ventas";
             this.ventasToolStripMenuItem1.Click += new System.EventHandler(this.ventasToolStripMenuItem1_Click);
             // 
@@ -272,6 +274,13 @@
             this.generalToolStripMenuItem.Text = "Cardex";
             this.generalToolStripMenuItem.Click += new System.EventHandler(this.generalToolStripMenuItem_Click);
             // 
+            // reporteProductosToolStripMenuItem
+            // 
+            this.reporteProductosToolStripMenuItem.Name = "reporteProductosToolStripMenuItem";
+            this.reporteProductosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.reporteProductosToolStripMenuItem.Text = "Reporte - Productos";
+            this.reporteProductosToolStripMenuItem.Click += new System.EventHandler(this.reporteProductosToolStripMenuItem_Click);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,5 +329,6 @@
         private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facturarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem reporteProductosToolStripMenuItem;
     }
 }

@@ -11,17 +11,17 @@ using System.Windows.Forms;
 
 namespace Win.TiendaElectronicos
 {
-    public partial class FormReporteVentas: Form
+    public partial class FormReporteProductos : Form
     {
-        public FormReporteVentas()
+        public FormReporteProductos()
         {
             InitializeComponent();
 
-            var _facturasBL = new FacturaBL();
+            var _ProductoBL = new ProductosBL();
             var bindingSource = new BindingSource();
-            bindingSource.DataSource = _facturasBL.ObtenerFacturas();
+            bindingSource.DataSource = _ProductoBL.ObtenerProductos();
 
-            var reporte = new ReporteFacturas();
+            var reporte = new ReporteProducto();
             reporte.SetDataSource(bindingSource);
 
             crystalReportViewer1.ReportSource = reporte;
