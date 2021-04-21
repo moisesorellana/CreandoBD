@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,23 +9,28 @@ namespace BL.Tecnologia
 {
     public class SeguridadBL
     {
-        public bool Autorizar(string Usuario, string Contraseña)
+        Contexto _contexto;
+
+        public SeguridadBL()
         {
-            if(Usuario == "Empleado1"  && Contraseña == "123")
+            _contexto = new Contexto();
+        }
+
+
+        public Usuario Autorizar(string Usuario, string Contraseña)
+        {
+
+            var Usuarios = _contexto.Usuarios.ToList();
+
+            foreach(var usuarioBD in Usuarios)
             {
-                return true;
-            }
-            else
-            {
-                if(Usuario == "Empleado2" && Contraseña == "321")
+                if(Usuario == usuarioBD.Nombre && Contraseña == usuarioBD.Contraseña)
                 {
-                    return true;
-                }
-                else
-                {
-                    return false;
+                    return usuarioBD;
                 }
             }
+            return null;
+           
         }
 
     }

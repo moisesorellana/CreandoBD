@@ -38,15 +38,22 @@ namespace Win.TiendaElectronicos
             Usuario = textBox1.Text; // Recuerda : siempre colocar el nombre correcto de la herramienta a utilisar. (Ejemplo: textBox1)
             Contraseña = textBox2.Text;
 
-            var Resultado = Seguridad.Autorizar(Usuario, Contraseña);
+            button1.Enabled = false;
+            button1.Text = "verificando";
+            Application.DoEvents();
+              
+
+            var usuarioDB = Seguridad.Autorizar(Usuario, Contraseña);
 
             //   Usuario2 = textBox3.Text;
             // Contraseña2 = textBox4.Text;
 
             // Login a Usuario 1 y 2
 
-            if (Resultado == true)
+            if (usuarioDB != null)
             {
+                Utils.nombreUsuario = usuarioDB.Nombre;
+                Utils.EnviarCorreo();
                 this.Close();
             }
           //  else
@@ -58,6 +65,8 @@ namespace Win.TiendaElectronicos
             {
                 MessageBox.Show("Usuario o Contraseña Incorrecta");
             }
+            button1.Enabled = true;
+            button1.Text = "Aceptar";
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -68,6 +77,29 @@ namespace Win.TiendaElectronicos
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if(textBox1.Text != "")
+                {
+                    textBox2.Focus();
+                }
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (textBox2.Text != "")
+                {
+                    button1_Click(null, null);
+                }
+            }
         }
     }
 }

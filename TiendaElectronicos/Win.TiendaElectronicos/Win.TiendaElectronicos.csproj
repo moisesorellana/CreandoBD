@@ -52,6 +52,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
@@ -163,6 +164,12 @@
     <Compile Include="FormSalidas.Designer.cs">
       <DependentUpon>FormSalidas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsuarios.Designer.cs">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVendedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +196,7 @@
       <DependentUpon>ReporteProducto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utils.cs" />
     <EmbeddedResource Include="FormAtencionAlCliente.resx">
       <DependentUpon>FormAtencionAlCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,6 +238,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReporteVentas.resx">
       <DependentUpon>FormReporteVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalidas.resx">
+      <DependentUpon>FormSalidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarios.resx">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVendedores.resx">
       <DependentUpon>FormVendedores.cs</DependentUpon>
@@ -274,8 +288,8 @@
     <None Include="Properties\DataSources\BL.Tecnologia.Producto.datasource" />
     <None Include="Properties\DataSources\BL.Tecnologia.ProductosBL.datasource" />
     <None Include="Properties\DataSources\BL.Tecnologia.SeguridadBL.datasource" />
+    <None Include="Properties\DataSources\BL.Tecnologia.UsuarioBL.datasource" />
     <None Include="Properties\DataSources\BL.Tecnologia.Vendedor.datasource" />
-    <None Include="Properties\DataSources\BL.Tecnologia.Vendedores.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

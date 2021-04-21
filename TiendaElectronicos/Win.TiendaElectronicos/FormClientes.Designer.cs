@@ -62,6 +62,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tipoClienteTextBox = new System.Windows.Forms.TextBox();
             this.rTNTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             addLabel = new System.Windows.Forms.Label();
             apellidoLabel = new System.Windows.Forms.Label();
@@ -301,6 +303,7 @@
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(100, 20);
             this.idTextBox.TabIndex = 6;
+            this.idTextBox.TextChanged += new System.EventHandler(this.idTextBox_TextChanged);
             // 
             // nombreTextBox
             // 
@@ -323,7 +326,7 @@
             this.fotoPictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
             this.fotoPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.fotoPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.clienteBindingSource, "Foto", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.fotoPictureBox.Location = new System.Drawing.Point(419, 28);
+            this.fotoPictureBox.Location = new System.Drawing.Point(434, 60);
             this.fotoPictureBox.Name = "fotoPictureBox";
             this.fotoPictureBox.Size = new System.Drawing.Size(175, 141);
             this.fotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -333,7 +336,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(419, 175);
+            this.button1.Location = new System.Drawing.Point(434, 207);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 13;
@@ -343,7 +346,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(509, 175);
+            this.button2.Location = new System.Drawing.Point(524, 207);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 14;
@@ -372,6 +375,23 @@
             this.rTNTextBox.Size = new System.Drawing.Size(191, 20);
             this.rTNTextBox.TabIndex = 17;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(417, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Buscar: ";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(472, 16);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(146, 20);
+            this.textBox1.TabIndex = 19;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
             // clienteBindingSource
             // 
             this.clienteBindingSource.DataSource = typeof(BL.Tecnologia.Cliente);
@@ -382,6 +402,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(630, 307);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(rTNLabel);
             this.Controls.Add(this.rTNTextBox);
             this.Controls.Add(tipoClienteLabel);
@@ -442,5 +464,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox tipoClienteTextBox;
         private System.Windows.Forms.TextBox rTNTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

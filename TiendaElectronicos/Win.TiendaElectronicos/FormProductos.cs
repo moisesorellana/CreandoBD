@@ -23,19 +23,20 @@ namespace Win.TiendaElectronicos
 
             Productos = new ProductosBL();
 
-            listaProductosBindingSource.DataSource = Productos.ObtenerProductos();
+            listaProductoBindingSource.DataSource = Productos.ObtenerProductos();
 
             Categorias = new CategoriaBL();
-            listaCategoriaBindingSource.DataSource = Categorias.ObtenerCategoria();        }
+            listaCategoriaBindingSource.DataSource = Categorias.ObtenerCategoria();
+        }
 
         private void listaProductosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
 
-            listaProductosBindingSource.EndEdit();
-            var producto = (Producto)listaProductosBindingSource.Current;
+            listaProductoBindingSource.EndEdit();
+            var producto = (Producto)listaProductoBindingSource.Current;
 
 
-            if(fotoPictureBox.Image != null)
+            if (fotoPictureBox.Image != null)
             {
                 producto.Foto = Program.imageToByteArray(fotoPictureBox.Image);
             }
@@ -45,9 +46,9 @@ namespace Win.TiendaElectronicos
             }
             var Resultado = Productos.GuardarProducto(producto);
 
-            if(Resultado.Correcto == true)
+            if (Resultado.Correcto == true)
             {
-                listaProductosBindingSource.ResetBindings(false);
+                listaProductoBindingSource.ResetBindings(false);
                 HabilitarDeshabilitar(true);
                 MessageBox.Show("Producto Registrado");
             }
@@ -60,7 +61,7 @@ namespace Win.TiendaElectronicos
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             Productos.AgregarProducto();
-            listaProductosBindingSource.MoveLast();
+            listaProductoBindingSource.MoveLast();
 
             HabilitarDeshabilitar(false);
         }
@@ -84,33 +85,33 @@ namespace Win.TiendaElectronicos
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
 
-           
-            if(IdTextBox.Text != "")
+
+            if (idTextBox.Text != "")
             {
                 var resultado = MessageBox.Show("Desea Elminar Este Producto ?", "Eliminar", MessageBoxButtons.YesNo);
-                if(resultado == DialogResult.Yes)
+                if (resultado == DialogResult.Yes)
                 {
-                    var Id = Convert.ToInt32(IdTextBox.Text);
+                    var Id = Convert.ToInt32(idTextBox.Text);
                     Eliminar(Id);
                 }
-                
+
             }
         }
 
         private void Eliminar(int id)
         {
-            
-             var Resultado = Productos.Eliminar(id);
+
+            var Resultado = Productos.Eliminar(id);
 
             if (Resultado == true)
             {
-                listaProductosBindingSource.ResetBindings(false);
+                listaProductoBindingSource.ResetBindings(false);
             }
             else
             {
                 MessageBox.Show("Error al Eliminar Producto");
             }
-        
+
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -121,6 +122,10 @@ namespace Win.TiendaElectronicos
 
         private void FormProductos_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Categoria' Puede moverla o quitarla según sea necesario.
+            this.categoriaTableAdapter.Fill(this.dataSet1.Categoria);
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Producto' Puede moverla o quitarla según sea necesario.
+            this.productoTableAdapter.Fill(this.dataSet1.Producto);
 
         }
 
@@ -156,8 +161,8 @@ namespace Win.TiendaElectronicos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var producto = (Producto)listaProductosBindingSource.Current;
-            if(producto != null)
+            var producto = (Producto)listaProductoBindingSource.Current;
+            if (producto != null)
             {
                 openFileDialog1.ShowDialog();
                 var archivo = openFileDialog1.FileName;
@@ -175,12 +180,49 @@ namespace Win.TiendaElectronicos
                 MessageBox.Show("no se puede asignar imagen sin Antes Regitrar un producto");
             }
 
-         
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             fotoPictureBox.Image = null;
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                var buscar = textBox1.Text;
+                listaProductoBindingSource.DataSource = Productos.ObtenerProductos(buscar);
+            }
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void descripcionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void activoCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void activoLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void idTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }
+

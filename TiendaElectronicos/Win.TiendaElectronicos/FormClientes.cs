@@ -163,5 +163,20 @@ namespace Win.TiendaElectronicos
         {
 
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (textBox1.Text != "")
+                {
+
+          }     }
+       }
+
+        private void idTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

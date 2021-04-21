@@ -10,7 +10,7 @@ namespace BL.Tecnologia
 {
     public class Contexto:DbContext
     {
-        public Contexto(): base("Tecnologi_Mo")
+        public Contexto(): base("Tecnologia_MoisesOrellana_Equipo7")
         {
 
         }
@@ -27,6 +27,8 @@ namespace BL.Tecnologia
         public DbSet <Factura> Facturas { get; set; }
         public DbSet <Cliente> Clientes { get; set; }
         public DbSet <Vendedor> Vendedores { get; set;}
+        public DbSet <Usuario> Usuarios { get; set; }
+        
           
 
 

@@ -22,11 +22,20 @@ namespace BL.Tecnologia
             ListaProducto = new BindingList<Producto>();
         }
 
-        public BindingList<Producto> ObtenerProductos()
+        public IEnumerable<Producto> ObtenerProductos()
         {
             _contexto.Productos.Load();
-            ListaProducto =  _contexto.Productos.Local.ToBindingList();
-            return ListaProducto;
+            ListaProducto = _contexto.Productos.Local.ToBindingList();
+            return ListaProducto.OrderBy(producto => producto.Descripcion);
+        }
+
+        public IEnumerable<Producto> ObtenerProductos(string buscar)
+        {
+            var descripcion = buscar.ToLower().Trim();
+
+            var resultado = _contexto.Productos.Where(r => r.Descripcion.ToLower().Contains(descripcion)).ToList();
+
+            return resultado;
         }
 
         public Resultado GuardarProducto(Producto Producto)

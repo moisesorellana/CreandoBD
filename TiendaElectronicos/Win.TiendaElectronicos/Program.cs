@@ -28,5 +28,10 @@ namespace Win.TiendaElectronicos
 
             return ms.ToArray();
         }
+
+        internal static byte[] imageToByteArray(object image)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

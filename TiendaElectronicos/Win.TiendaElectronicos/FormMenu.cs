@@ -84,6 +84,8 @@ namespace Win.TiendaElectronicos
         {
             var formLogin = new FormLogin();
             formLogin.ShowDialog();
+
+            toolStripStatusLabel1.Text = "Usuario :"  + Utils.nombreUsuario;
         }
 
         private void generalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -147,6 +149,14 @@ namespace Win.TiendaElectronicos
             var formReporteProduto = new FormReporteProductos();
             formReporteProduto.MdiParent = this;
             formReporteProduto.Show();
+        }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formUsuario = new FormUsuarios();
+            formUsuario.MdiParent = this;
+            formUsuario.Show();
+
         }
     }
 }
